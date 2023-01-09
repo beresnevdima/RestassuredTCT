@@ -1,4 +1,4 @@
-package org.example.RestassuredTCT.DTO;
+package org.example.RestassuredTCT.DTO.Response;
 
 import lombok.*;
 
@@ -8,6 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class GetSidTCT {
+public class ResponseSidTCT {
     private String value;
 }

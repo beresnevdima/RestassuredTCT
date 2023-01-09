@@ -1,4 +1,4 @@
-package org.example.RestassuredTCT.DTO;
+package org.example.RestassuredTCT.DTO.Request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

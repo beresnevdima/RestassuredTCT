@@ -1,8 +1,7 @@
 package org.example.RestassuredTCT;
 
-import org.example.RestassuredTCT.DTO.GetSidTCT;
-import org.example.RestassuredTCT.DTO.RequestGetSidTCT;
-import org.junit.jupiter.api.Test;
+import org.example.RestassuredTCT.DTO.Response.ResponseSidTCT;
+import org.example.RestassuredTCT.DTO.Request.RequestGetSidTCT;
 
 import java.io.IOException;
 
@@ -18,7 +17,7 @@ public class SidTCT {
         String login = System.getProperty("iam.session.login");
         String password = System.getProperty("iam.session.password");
         RequestGetSidTCT request = new RequestGetSidTCT(new RequestGetSidTCT.RequestInfo(scheme, login, password));
-        GetSidTCT getSidTCT = given()
+        ResponseSidTCT getSidTCT = given()
                 .body(request)
                 .when()
                 .header("Content-Type", "application/json")
@@ -27,7 +26,7 @@ public class SidTCT {
                 .then().log().all()
                 .body("value", notNullValue())
                 .statusCode(200)
-                .extract().as(GetSidTCT.class);
+                .extract().as(ResponseSidTCT.class);
         String sid = getSidTCT.getValue();
         return (sid);
     }
