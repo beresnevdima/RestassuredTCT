@@ -2,25 +2,18 @@ package org.example.RestassuredTCT;
 
 import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails;
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
-import java.lang.reflect.Type;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
 
 public class CreditDetails {
 
     SidTCT sidTCT = new SidTCT();
     String sid = sidTCT.getSidTCT();
-
     long uid = 2020005024L;
     int ClientId = 500341;
-
     public CreditDetails() throws IOException {
     }
-
     @Test
     public void CreditDetails() throws IOException {
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
@@ -37,6 +30,5 @@ public class CreditDetails {
                 .body("result.graceSum", equalTo(0))
                 .body("result.paymentDue", equalTo("2023-02-28"))
                 .extract().as(ResponseCreditDetails.class);
-
     }
 }
