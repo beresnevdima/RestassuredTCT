@@ -22,7 +22,6 @@ public class DbUtils {
         jdbc = new JdbcTemplate(dataSource);
     }
 
-
     public int update(String query) {
 
         return jdbc.update(query);
