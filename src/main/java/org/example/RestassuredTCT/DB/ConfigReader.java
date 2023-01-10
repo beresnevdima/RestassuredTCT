@@ -1,11 +1,33 @@
 package org.example.RestassuredTCT.DB;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
 
-    protected Properties properties;
-    protected static ConfigReader configReader;
+    private Properties properties;
+    private static ConfigReader configReader;
+
+    private ConfigReader() {
+        BufferedReader reader;
+        String propertyFilePath = "application.properties";
+        try {
+            reader = new BufferedReader(new FileReader(propertyFilePath));
+            properties = new Properties();
+            try {
+                properties.load(reader);
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            throw new RuntimeException("application.properties not found at " + propertyFilePath);
+        }
+    }
 
     public static ConfigReader getInstance() {
         if (configReader == null) {
