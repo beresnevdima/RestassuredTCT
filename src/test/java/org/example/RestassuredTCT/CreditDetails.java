@@ -2,6 +2,9 @@ package org.example.RestassuredTCT;
 
 import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails;
 import org.junit.jupiter.api.Test;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
 import java.io.IOException;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
