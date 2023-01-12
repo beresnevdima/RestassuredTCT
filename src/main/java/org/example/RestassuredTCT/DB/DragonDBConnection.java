@@ -26,6 +26,7 @@ public class DragonDBConnection {
                         System.out.println("Ошибка");
                     }
                 }
+
             } catch (SQLException e ) {
                 throw new Error("Problem", e);
             }
