@@ -12,9 +12,13 @@ public class DragonDBConnection {
 
         try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
              Statement stmt = conn.createStatement()) {
-
+        ResultSet rs =null;
             try {
-                ResultSet rs = stmt.executeQuery("SELECT state FROM un62.interest_charges_v2 WHERE acc='21100200025461' AND date_calc='2022-09-01'");
+
+                int i = stmt.executeUpdate("UPDATE un62.interest_charges_v2 SET interest=0.01, accum=0.11, state='G', amount=100.00, debit=0.00, credit=0.00, is_double=NULL, is_end_of_grace=NULL, rate=37.50, client_id=500981 WHERE acc='21100200025461' AND date_calc='2022-09-01'");
+                System.out.println(i);
+
+                rs = stmt.executeQuery("SELECT state FROM un62.interest_charges_v2 WHERE acc='21100200025461' AND date_calc='2022-09-01'");
                 while (rs.next()) {
                     String name = rs.getString("state");
                     System.out.println(name);
@@ -29,6 +33,11 @@ public class DragonDBConnection {
 
             } catch (SQLException e ) {
                 throw new Error("Problem", e);
+            }
+            finally {
+                if (rs != null){
+                    rs.close();
+                }
             }
 
         } catch (SQLException e) {
