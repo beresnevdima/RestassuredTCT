@@ -1,14 +1,11 @@
-package org.example.RestassuredTCT.DB;
-
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
+package org.example.RestassuredTCT.DB.Example;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class SQL {
+public class SqlConnection {
 
     public static void main(String[] args) throws IOException {
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));

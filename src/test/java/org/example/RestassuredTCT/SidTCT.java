@@ -9,8 +9,8 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class SidTCT {
-
-    protected String getSidTCT() throws IOException {
+private String sid;
+    public String getSidTCT() throws IOException {
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
         String baseUrl = System.getProperty("iam.session.url");
         String scheme = System.getProperty("iam.session.auth");
@@ -30,4 +30,13 @@ public class SidTCT {
         String sid = getSidTCT.getValue();
         return (sid);
     }
+
+//    public String getSid() throws Exception{
+//    if( sid == null ){
+//        this.sid = getSidTCT();
+//    }
+//
+//
+//        return sid;
+//    }
 }

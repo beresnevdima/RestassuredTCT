@@ -1,4 +1,4 @@
-package org.example.RestassuredTCT.DB;
+package org.example.RestassuredTCT.DB.Example;
 
 import java.io.IOException;
 import java.sql.*;

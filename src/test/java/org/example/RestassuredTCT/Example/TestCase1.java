@@ -1,6 +1,6 @@
-package org.example.RestassuredTCT;
+package org.example.RestassuredTCT.Example;
 
-import org.example.RestassuredTCT.DB.WorksWithDBDragon;
+import org.example.RestassuredTCT.DB.ExampleMono.WorksWithDBDragon;
 import org.testng.annotations.Test;
 
 public class TestCase1 {

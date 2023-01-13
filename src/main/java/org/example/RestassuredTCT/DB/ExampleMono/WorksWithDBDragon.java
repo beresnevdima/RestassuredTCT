@@ -1,4 +1,7 @@
-package org.example.RestassuredTCT.DB;
+package org.example.RestassuredTCT.DB.ExampleMono;
+
+import org.example.RestassuredTCT.DB.ExampleMono.ConfigReader;
+import org.example.RestassuredTCT.DB.ExampleMono.DbUtils;
 
 import java.util.Map;
 

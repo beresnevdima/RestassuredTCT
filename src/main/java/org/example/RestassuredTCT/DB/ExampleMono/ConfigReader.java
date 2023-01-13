@@ -1,4 +1,4 @@
-package org.example.RestassuredTCT.DB;
+package org.example.RestassuredTCT.DB.ExampleMono;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

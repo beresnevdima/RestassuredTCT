@@ -1,4 +1,4 @@
-package org.example.RestassuredTCT.DB;
+package org.example.RestassuredTCT.DB.ExampleMono;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;

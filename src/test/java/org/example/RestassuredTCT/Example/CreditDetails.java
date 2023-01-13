@@ -1,6 +1,7 @@
-package org.example.RestassuredTCT;
+package org.example.RestassuredTCT.Example;
 
 import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails;
+import org.example.RestassuredTCT.SidTCT;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -8,6 +9,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class CreditDetails {
+
 
     SidTCT sidTCT = new SidTCT();
     String sid = sidTCT.getSidTCT();
