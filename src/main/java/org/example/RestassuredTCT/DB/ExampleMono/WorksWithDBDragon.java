@@ -19,7 +19,7 @@ public class WorksWithDBDragon {
 
     public Map<String, Object> selectProcessState(){
 
-        Map<String, Object> state = db.readRow("select * from un62.process_state");
+        Map<String, Object> state = db.readRow("SELECT state FROM un62.interest_charges_v2 WHERE acc='21100200025461' AND date_calc='2022-09-01'");
         return state;
     }
 }

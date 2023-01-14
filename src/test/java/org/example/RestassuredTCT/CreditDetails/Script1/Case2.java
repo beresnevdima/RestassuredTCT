@@ -5,4 +5,5 @@ package org.example.RestassuredTCT.CreditDetails.Script1;
 /// - Поповнення на сумму меньшу, ніж трата
 
 public class Case2 {
+
 }
