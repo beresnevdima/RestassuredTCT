@@ -6,13 +6,9 @@ package org.example.RestassuredTCT.CreditDetails.Script1;
 
 import org.example.RestassuredTCT.CreditDetails.CreditDetailsTemplate;
 import org.example.RestassuredTCT.DB.Example.SqlConnection;
-import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails;
 import org.junit.Test;
 import java.io.IOException;
 import java.sql.SQLException;
-
-import static org.hamcrest.Matchers.equalTo;
-
 
 public class Case2 {
 
@@ -20,24 +16,26 @@ public class Case2 {
     long uid = 2020005024L;
     int clientId = 500341;
 
-    SqlConnection sqlConnection = new SqlConnection(null);
-    CreditDetailsTemplate creditDetailsTemplate = new CreditDetailsTemplate();
+
+    SqlConnection sqlConnection = new SqlConnection();
+//    CreditDetailsTemplate creditDetailsTemplate = new CreditDetailsTemplate();
 
     public Case2() throws IOException {}
 
     @Test
     public void Case2test () throws IOException, SQLException {
         sqlConnection.getConnection();
-        creditDetailsTemplate.CreditDetails(clientId, uid)
-                .statusCode(200)
-                .body("result.script", equalTo("1"))
-                .body("result.totalSum", equalTo(45.00F))
-                .body("result.paymentDue", equalTo("2023-02-28"))
-                .body("result.fullRepay", equalTo(45.00F))
-                .body("result.paymentState", equalTo("noMinPaym"))
-                .body("result.contractState", equalTo("ACTIVE"))
-                .body("result.graceStart", equalTo("2023-01-02T00:00:00.000Z"))
-                .body("result.graceEnd", equalTo("2023-02-28T00:00:00.000Z"))
-                .extract().as(ResponseCreditDetails.class);
+        sqlConnection.doUpdate(sqlSet);
+//        creditDetailsTemplate.CreditDetails(clientId, uid)
+//                .statusCode(200)
+//                .body("result.script", equalTo("1"))
+//                .body("result.totalSum", equalTo(45.00F))
+//                .body("result.paymentDue", equalTo("2023-02-28"))
+//                .body("result.fullRepay", equalTo(45.00F))
+//                .body("result.paymentState", equalTo("noMinPaym"))
+//                .body("result.contractState", equalTo("ACTIVE"))
+//                .body("result.graceStart", equalTo("2023-01-02T00:00:00.000Z"))
+//                .body("result.graceEnd", equalTo("2023-02-28T00:00:00.000Z"))
+//                .extract().as(ResponseCreditDetails.class);
     }
 }

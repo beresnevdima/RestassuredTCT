@@ -1,31 +1,45 @@
 package org.example.RestassuredTCT.DB.Example;
 
+import org.testng.annotations.Test;
+
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class SqlConnection {
 
-    public Connection getConnection() throws SQLException, IOException {
-        System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
-        String jdbcUrl = System.getProperty("dragon.sandbox.jdbcUrl");
-        String username = System.getProperty("dragon.sandbox.username");
-        String password = System.getProperty("dragon.sandbox.password");
+    private final String jdbcUrl;
+    private final String username;
+    private final String password;
 
-        try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
+    public SqlConnection() throws IOException {
+        System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
+
+        this.jdbcUrl = System.getProperty("dragon.sandbox.jdbcUrl");
+        this.username = System.getProperty("dragon.sandbox.username");
+        this.password = System.getProperty("dragon.sandbox.password");
+    }
+
+    public Connection getConnection() throws SQLException {
+        Connection connection;
+        try {
+            connection = DriverManager.getConnection(jdbcUrl, username, password);
+            if (!connection.isClosed()) {
+                System.out.println("We are connected!");
+            }
         } catch (SQLException e) {
-            throw new Error("Problem", e);
+            System.out.println("there is no connection... Exception!");
         }
         return DriverManager.getConnection(jdbcUrl, username, password);
     }
-}
-
-
-//
-//    public void doinsert() throws SQLException{
-//        try(Connection connection = getConnection()){
-//
-//
-//        }
+@Test
+    public void doUpdate (String sqlSet){
+        try (Connection connect = DriverManager.getConnection(jdbcUrl, username, password);
+             Statement stmt = connect.createStatement()){
+            stmt.executeUpdate(sqlSet);
+        }
+        catch (SQLException e) {
+            throw new Error("Problem", e);
+        }
     }
+
+}
