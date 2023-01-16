@@ -1,7 +1,5 @@
 package org.example.RestassuredTCT.DB.Example;
 
-import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.sql.*;
 
@@ -32,17 +30,17 @@ public class SqlConnection {
         return DriverManager.getConnection(jdbcUrl, username, password);
     }
 
-
     public void doUpdate(String sqlSet) {
         try (Connection connect = DriverManager.getConnection(jdbcUrl, username, password);
              Statement stmt = connect.createStatement()) {
             stmt.executeUpdate(sqlSet);
+            stmt.close();
         } catch (SQLException e) {
             throw new Error("Problem", e);
         }
     }
 
-    public void doSelectString(String sqlSelectString, String columnLabelString, String valueString) throws SQLException {
+    public void doSelect(String sqlSelectString, String columnLabelString) throws SQLException {
         ResultSet res = null;
         try (Connection connect = DriverManager.getConnection(jdbcUrl, username, password);
              Statement stmt = connect.createStatement()) {
@@ -51,37 +49,6 @@ public class SqlConnection {
             while (res.next()) {
                 String name = res.getString(columnLabelString);
                 System.out.println(name);
-
-                if (valueString.equals(name)) {
-                    System.out.println("Есть совпадение");
-                } else {
-                    System.out.println("Ошибка");
-                }
-            }
-        } catch (SQLException e) {
-            throw new Error("Problem", e);
-        } finally {
-            if (res != null) {
-                res.close();
-            }
-        }
-    }
-
-    public void doSelectInteger(String sqlSelectInteger, String columnLabelInteger, Long valueInteger) throws SQLException {
-        ResultSet res = null;
-        try (Connection connect = DriverManager.getConnection(jdbcUrl, username, password);
-             Statement stmt = connect.createStatement()) {
-            res = stmt.executeQuery(sqlSelectInteger);
-
-            while (res.next()) {
-                Long name = res.getLong(columnLabelInteger);
-                System.out.println(name);
-
-                if (valueInteger.equals(name)) {
-                    System.out.println("Есть совпадение");
-                } else {
-                    System.out.println("Ошибка");
-                }
             }
         } catch (SQLException e) {
             throw new Error("Problem", e);

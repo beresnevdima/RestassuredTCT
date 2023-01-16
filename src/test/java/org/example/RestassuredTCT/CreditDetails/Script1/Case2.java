@@ -17,8 +17,7 @@ public class Case2 {
     String sqlSet = "delete FROM un62.debt_operation WHERE acc= '21100200006917';";
     String sqlSelectString = "SELECT state FROM un62.interest_charges_v2 WHERE acc='21100200025461' AND date_calc='2022-09-01'";
     String columnLabelString = "state";
-    String valueString = "G";
-    String sqlSelectInteger = "select acc from un62.interest_charges_v2 where date_calc = '2022-09-01'";
+
     String columnLabelInteger = "acc";
     Long valueInteger = 21100200025461L;
 
@@ -30,13 +29,11 @@ public class Case2 {
     CreditDetailsTemplate creditDetailsTemplate = new CreditDetailsTemplate();
 
     public Case2() throws IOException {}
-
     @Test
     public void Case2test () throws IOException, SQLException {
         sqlConnection.getConnection();
-        sqlConnection.doUpdate(sqlSet);
-        sqlConnection.doSelectString(sqlSelectString, columnLabelString, valueString);
-        sqlConnection.doSelectInteger(sqlSelectInteger, columnLabelInteger, valueInteger);
+//        sqlConnection.doUpdate(sqlSet);
+        sqlConnection.doSelect(sqlSelectString, columnLabelString);
         creditDetailsTemplate.CreditDetails(clientId, uid)
                 .statusCode(200)
                 .body("result.script", equalTo("1"))
