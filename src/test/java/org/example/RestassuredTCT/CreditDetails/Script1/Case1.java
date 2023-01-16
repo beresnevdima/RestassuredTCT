@@ -6,17 +6,14 @@ package org.example.RestassuredTCT.CreditDetails.Script1;
 import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails;
 import org.example.RestassuredTCT.SidTCT;
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 import java.sql.*;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class Case1 {
 
-    public Case1() throws IOException {
-    }
+    public Case1() throws IOException {}
 
     public static void main(String[] args) throws IOException {
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
@@ -47,7 +44,6 @@ public class Case1 {
                             "VALUES('8769630', '21100200006917', '2023-01-02', '2023-02-28', NULL, NULL, '2023-01-02 05:45:27.000');");
                 System.out.println(update);
 
-
             } catch (SQLException e ) {
                 throw new Error("Problem", e);
             }
@@ -64,10 +60,6 @@ public class Case1 {
 
     @Test
     public void CreditDetails() throws IOException {
-        //
-        BDservice db = new BDservice("");
-        db.prepare();
-
 
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
         String baseUrl = System.getProperty("dragon-api.url");
@@ -88,19 +80,5 @@ public class Case1 {
                 .body("result.graceStart", equalTo("2023-01-02T00:00:00.000Z"))
                 .body("result.graceEnd", equalTo("2023-02-28T00:00:00.000Z"))
                 .extract().as(ResponseCreditDetails.class);
-    }
-
-    public static class BDservice{
-
-        private final String url;
-
-        public BDservice(String url){
-
-            this.url = url;
-        }
-
-        public void prepare(){
-
-        }
     }
 }

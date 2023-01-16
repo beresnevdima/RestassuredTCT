@@ -9,7 +9,9 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class SidTCT {
-private String sid;
+
+//private String sid;
+
     public String getSidTCT() throws IOException {
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
         String baseUrl = System.getProperty("iam.session.url");
