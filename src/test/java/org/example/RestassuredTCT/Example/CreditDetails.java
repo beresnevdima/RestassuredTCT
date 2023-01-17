@@ -12,7 +12,7 @@ public class CreditDetails {
 
 
     SidTCT sidTCT = new SidTCT();
-    String sid = sidTCT.getSidTCT();
+    String sid = sidTCT.getSid();
     long uid = 2020005024L;
     int ClientId = 500341;
     public CreditDetails() throws IOException {

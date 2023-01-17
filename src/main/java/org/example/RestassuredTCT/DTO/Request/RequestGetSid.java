@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @lombok.Builder(builderClassName = "Builder", toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestGetSidTCT {
+public class RequestGetSid {
 
     private RequestInfo user;
 

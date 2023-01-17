@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.request;
 public class CreditDetailsTemplate {
 
     SidTCT sidTCT = new SidTCT();
-    String sid = sidTCT.getSidTCT();
+    String sid = sidTCT.getSid();
     public long uid;
     public int clientId;
 

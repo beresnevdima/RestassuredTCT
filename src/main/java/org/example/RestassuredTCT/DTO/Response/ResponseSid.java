@@ -8,6 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ResponseSidTCT {
+public class ResponseSid {
     private String value;
 }

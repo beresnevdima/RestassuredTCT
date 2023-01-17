@@ -1,55 +1,56 @@
-package org.example.RestassuredTCT.DB.Example;
+package org.example.RestassuredTCT.DB;
 
 import java.io.IOException;
 import java.sql.*;
 
-public class SqlConnection {
+public class DBConnection {
 
-    private final String jdbcUrl;
-    private final String username;
-    private final String password;
+    private final String JDBC_URL;
+    private final String USERNAME;
+    private final String PASSWORD;
 
-    public SqlConnection() throws IOException {
+    public DBConnection() throws IOException {
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
 
-        this.jdbcUrl = System.getProperty("dragon.sandbox.jdbcUrl");
-        this.username = System.getProperty("dragon.sandbox.username");
-        this.password = System.getProperty("dragon.sandbox.password");
+        this.JDBC_URL = System.getProperty("dragon.sandbox.jdbcUrl");
+        this.USERNAME = System.getProperty("dragon.sandbox.username");
+        this.PASSWORD = System.getProperty("dragon.sandbox.password");
     }
 
     public Connection getConnection() throws SQLException {
         Connection connection;
         try {
-            connection = DriverManager.getConnection(jdbcUrl, username, password);
+            connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
             if (!connection.isClosed()) {
                 System.out.println("We are connected!");
             }
         } catch (SQLException e) {
             System.out.println("there is no connection... Exception!");
         }
-        return DriverManager.getConnection(jdbcUrl, username, password);
+        return DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
     }
 
     public void doUpdate(String sqlSet) {
-        try (Connection connect = DriverManager.getConnection(jdbcUrl, username, password);
+        try (Connection connect = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
              Statement stmt = connect.createStatement()) {
             stmt.executeUpdate(sqlSet);
-            stmt.close();
         } catch (SQLException e) {
             throw new Error("Problem", e);
         }
     }
 
-    public void doSelect(String sqlSelectString, String columnLabelString) throws SQLException {
+    public void doSelect(String sqlSelect, String columnLabel) throws SQLException {
         ResultSet res = null;
-        try (Connection connect = DriverManager.getConnection(jdbcUrl, username, password);
+
+        try (Connection connect = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
              Statement stmt = connect.createStatement()) {
-            res = stmt.executeQuery(sqlSelectString);
+            res = stmt.executeQuery(sqlSelect);
 
             while (res.next()) {
-                String name = res.getString(columnLabelString);
+                String name = res.getString(columnLabel);
                 System.out.println(name);
             }
+
         } catch (SQLException e) {
             throw new Error("Problem", e);
         } finally {

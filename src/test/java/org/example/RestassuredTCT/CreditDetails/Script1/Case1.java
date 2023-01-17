@@ -54,7 +54,7 @@ public class Case1 {
     }
 
     SidTCT sidTCT = new SidTCT();
-    String sid = sidTCT.getSidTCT();
+    String sid = sidTCT.getSid();
     long uid = 2020005024L;
     int ClientId = 500341;
 

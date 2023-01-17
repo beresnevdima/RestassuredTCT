@@ -1,7 +1,7 @@
 package org.example.RestassuredTCT;
 
-import org.example.RestassuredTCT.DTO.Response.ResponseSidTCT;
-import org.example.RestassuredTCT.DTO.Request.RequestGetSidTCT;
+import org.example.RestassuredTCT.DTO.Response.ResponseSid;
+import org.example.RestassuredTCT.DTO.Request.RequestGetSid;
 
 import java.io.IOException;
 
@@ -10,35 +10,32 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class SidTCT {
 
-//private String sid;
+    private final String BASE_URL;
+    private final String SCHEME;
+    private final String LOGIN;
+    private final String PASSWORD;
 
-    public String getSidTCT() throws IOException {
+    public SidTCT() throws IOException{
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
-        String baseUrl = System.getProperty("iam.session.url");
-        String scheme = System.getProperty("iam.session.auth");
-        String login = System.getProperty("iam.session.login");
-        String password = System.getProperty("iam.session.password");
-        RequestGetSidTCT request = new RequestGetSidTCT(new RequestGetSidTCT.RequestInfo(scheme, login, password));
-        ResponseSidTCT getSidTCT = given()
+        this.BASE_URL = System.getProperty("iam.session.url");
+        this.SCHEME = System.getProperty("iam.session.auth");
+        this.LOGIN = System.getProperty("iam.session.login");
+        this.PASSWORD = System.getProperty("iam.session.password");
+    }
+
+    public String getSid(){
+        RequestGetSid request = new RequestGetSid(new RequestGetSid.RequestInfo(SCHEME, LOGIN, PASSWORD));
+        ResponseSid getSidTCT = given()
                 .body(request)
                 .when()
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
-                .post(baseUrl + "/sessions/open")
+                .post(BASE_URL + "/sessions/open")
                 .then().log().all()
                 .body("value", notNullValue())
                 .statusCode(200)
-                .extract().as(ResponseSidTCT.class);
+                .extract().as(ResponseSid.class);
         String sid = getSidTCT.getValue();
         return (sid);
     }
-
-//    public String getSid() throws Exception{
-//    if( sid == null ){
-//        this.sid = getSidTCT();
-//    }
-//
-//
-//        return sid;
-//    }
 }
