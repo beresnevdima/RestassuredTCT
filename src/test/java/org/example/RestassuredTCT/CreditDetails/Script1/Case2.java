@@ -18,7 +18,6 @@ public class Case2 {
     String sqlSelect = "SELECT state FROM un62.interest_charges_v2 WHERE acc='21100200025461' AND date_calc='2022-09-01'";
     String columnLabel = "state";
 
-//    String columnLabel = "acc";
     Long value = 21100200025461L;
 
     long uid = 2020005024L;
