@@ -9,7 +9,6 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class SidTCT {
-
     private final String BASE_URL;
     private final String SCHEME;
     private final String LOGIN;

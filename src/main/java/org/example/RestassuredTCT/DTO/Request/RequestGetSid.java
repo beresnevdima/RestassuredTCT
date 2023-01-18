@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 public class RequestGetSid {
 
     private RequestInfo user;
-
     @Data
     @AllArgsConstructor
     public static class RequestInfo {

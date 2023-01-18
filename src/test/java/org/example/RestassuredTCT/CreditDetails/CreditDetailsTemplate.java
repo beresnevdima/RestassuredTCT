@@ -1,14 +1,12 @@
 package org.example.RestassuredTCT.CreditDetails;
 
 import io.restassured.response.ValidatableResponse;
-import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails;
 import org.example.RestassuredTCT.SidTCT;
 import java.io.IOException;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.request;
 
 public class CreditDetailsTemplate {
-
     SidTCT sidTCT = new SidTCT();
     String sid = sidTCT.getSid();
     public long uid;

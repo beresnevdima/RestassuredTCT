@@ -3,7 +3,7 @@ package org.example.RestassuredTCT.CreditDetails.Script1;
 /// Отримання та перевірка "script": "1"
 /// Трата, відкриття пільгового періоду
 
-import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails;
+import io.restassured.response.Response;
 import org.example.RestassuredTCT.SidTCT;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
@@ -60,10 +60,9 @@ public class Case1 {
 
     @Test
     public void CreditDetails() throws IOException {
-
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
         String baseUrl = System.getProperty("dragon-api.url");
-        ResponseCreditDetails responseCreditDetails = given()
+        Response response = given()
                 .when()
                 .header("Content-Type", "application/json")
                 .header("sid", sid)
@@ -79,6 +78,31 @@ public class Case1 {
                 .body("result.contractState", equalTo("ACTIVE"))
                 .body("result.graceStart", equalTo("2023-01-02T00:00:00.000Z"))
                 .body("result.graceEnd", equalTo("2023-02-28T00:00:00.000Z"))
-                .extract().as(ResponseCreditDetails.class);
+                .extract().response();
+
+
+
+
+
+
+//        System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
+//        String baseUrl = System.getProperty("dragon-api.url");
+//        ResponseCreditDetails responseCreditDetails = given()
+//                .when()
+//                .header("Content-Type", "application/json")
+//                .header("sid", sid)
+//                .header("Client-Id", ClientId)
+//                .get(baseUrl + "/api/v1/info/thing/details/"+uid)
+//                .then().log().all()
+//                .statusCode(200)
+//                .body("result.script", equalTo("1"))
+//                .body("result.totalSum", equalTo(45.00F))
+//                .body("result.paymentDue", equalTo("2023-02-28"))
+//                .body("result.fullRepay", equalTo(45.00F))
+//                .body("result.paymentState", equalTo("noMinPaym"))
+//                .body("result.contractState", equalTo("ACTIVE"))
+//                .body("result.graceStart", equalTo("2023-01-02T00:00:00.000Z"))
+//                .body("result.graceEnd", equalTo("2023-02-28T00:00:00.000Z"))
+//                .extract().as(ResponseCreditDetails.class);
     }
 }

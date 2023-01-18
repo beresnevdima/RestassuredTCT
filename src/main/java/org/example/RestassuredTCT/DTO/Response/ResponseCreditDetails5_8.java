@@ -2,6 +2,8 @@ package org.example.RestassuredTCT.DTO.Response;
 
 import lombok.*;
 
+import java.util.ArrayList;
+
 @Data
 @Builder(builderClassName = "Builder", toBuilder = true)
 @AllArgsConstructor
@@ -9,7 +11,7 @@ import lombok.*;
 @Getter
 @Setter
 
-public class ResponseCreditDetails {
+public class ResponseCreditDetails5_8 {
 
     private ResponseCreditDetailsBody result;
 
@@ -31,7 +33,7 @@ public class ResponseCreditDetails {
         private String totalSum;
         private String graceEnd;
         private String graceStart;
-        private String expiredBillsDetail;
+        private ArrayList expiredBillsDetail;
         private String prevMonth;
         private String penaltySum;
         private String dateOfMonth;

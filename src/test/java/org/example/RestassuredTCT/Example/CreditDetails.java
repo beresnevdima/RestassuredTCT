@@ -1,6 +1,6 @@
 package org.example.RestassuredTCT.Example;
 
-import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails;
+import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails1_3;
 import org.example.RestassuredTCT.SidTCT;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +21,7 @@ public class CreditDetails {
     public void CreditDetails() throws IOException {
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
         String baseUrl = System.getProperty("dragon-api.url");
-        ResponseCreditDetails responseCreditDetails = given()
+        ResponseCreditDetails1_3 responseCreditDetails = given()
                 .when()
                 .header("Content-Type", "application/json")
                 .header("sid", sid)
@@ -32,6 +32,6 @@ public class CreditDetails {
                 .body("result.script", equalTo("0"))
                 .body("result.graceSum", equalTo(0))
                 .body("result.paymentDue", equalTo("2023-02-28"))
-                .extract().as(ResponseCreditDetails.class);
+                .extract().as(ResponseCreditDetails1_3.class);
     }
 }
