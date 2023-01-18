@@ -17,18 +17,18 @@ public class DBConnection {
         this.PASSWORD = System.getProperty("dragon.sandbox.password");
     }
 
-    public Connection getConnection() throws SQLException {
-        Connection connection;
-        try {
-            connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
-            if (!connection.isClosed()) {
-                System.out.println("We are connected!");
-            }
-        } catch (SQLException e) {
-            System.out.println("there is no connection... Exception!");
-        }
-        return DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
-    }
+//    public Connection getConnection() throws SQLException {
+//        Connection connection;
+//        try {
+//            connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
+//            if (!connection.isClosed()) {
+//                System.out.println("We are connected!");
+//            }
+//        } catch (SQLException e) {
+//            System.out.println("there is no connection... Exception!");
+//        }
+//        return DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
+//    }
 
     public void doUpdate(String sqlSet) {
         try (Connection connect = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);

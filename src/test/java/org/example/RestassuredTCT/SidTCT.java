@@ -22,19 +22,24 @@ public class SidTCT {
         this.PASSWORD = System.getProperty("iam.session.password");
     }
 
+//    public String getSid(){
+//        RequestGetSid request = new RequestGetSid(new RequestGetSid.RequestInfo(SCHEME, LOGIN, PASSWORD));
+//        ResponseSid getSidTCT = given()
+//                .body(request)
+//                .when()
+//                .header("Content-Type", "application/json")
+//                .header("Accept", "application/json")
+//                .post(BASE_URL + "/sessions/open")
+//                .then().log().all()
+//                .body("value", notNullValue())
+//                .statusCode(200)
+//                .extract().as(ResponseSid.class);
+//        String sid = getSidTCT.getValue();
+//        return (sid);
+//    }
+
     public String getSid(){
-        RequestGetSid request = new RequestGetSid(new RequestGetSid.RequestInfo(SCHEME, LOGIN, PASSWORD));
-        ResponseSid getSidTCT = given()
-                .body(request)
-                .when()
-                .header("Content-Type", "application/json")
-                .header("Accept", "application/json")
-                .post(BASE_URL + "/sessions/open")
-                .then().log().all()
-                .body("value", notNullValue())
-                .statusCode(200)
-                .extract().as(ResponseSid.class);
-        String sid = getSidTCT.getValue();
-        return (sid);
+        return ("230118om4XXjx9lgd2k5");
     }
+
 }

@@ -12,30 +12,32 @@ import org.junit.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import static org.hamcrest.Matchers.equalTo;
+
 public class Case2 {
 
-    Long value = 21100200006917L;
-
-    String sqlSet = "delete FROM un62.debt_operation WHERE acc= '"+ value +"'";
-    String sqlSett = "delete FROM un62.debt_operation WHERE acc= '"+ value +"'";
-    String sqlSelect = "SELECT state FROM un62.interest_charges_v2 WHERE acc='21100200025461' AND date_calc='2022-09-01'";
-    String columnLabel = "state";
+//    Long value = 21100200006917L;
+//
+//    String sqlSet = "delete FROM un62.debt_operation WHERE acc= '"+ value +"'";
+//    String sqlSett = "delete FROM un62.debt_operation WHERE acc= '"+ value +"'";
+//    String sqlSelect = "SELECT state FROM un62.interest_charges_v2 WHERE acc='21100200025461' AND date_calc='2022-09-01'";
+//    String columnLabel = "state";
 
 //    Long value = 21100200025461L;
 
-//    long uid = 2020005024L;
-//    int clientId = 500341;
+    long uid = 2020005024L;
+    int clientId = 500341;
 
-//    DBConnection sqlConnection = new DBConnection();
+    DBConnection sqlConnection = new DBConnection();
     CreditDetailsTemplate creditDetailsTemplate = new CreditDetailsTemplate();
 
     public Case2() throws IOException {}
 
     @Test
     public void Case2test (int clientId, long uid) throws IOException, SQLException {
-//        sqlConnection.getConnection();
+
 //        sqlConnection.doUpdate(sqlSet);
-//        sqlConnection.doSelect(sqlSelect, columnLabel);
+
         creditDetailsTemplate.CreditDetails(clientId, uid)
                 .statusCode(200)
 //                .body("result.script", equalTo("1"))
