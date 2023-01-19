@@ -10,9 +10,11 @@ public class Script0 {
     PreconditionsFoScripts preconditionsFoScript = new PreconditionsFoScripts();
     CreditDetailsTemplate creditDetailsTemplate = new CreditDetailsTemplate();
     public Script0() throws IOException {}
+
+//  Клієнт не використовує кредитний ліміт
     public void TestCase1 (int clientId, long uid) throws IOException {
-        preconditionsFoScript.DeleteAllValuesFromTheTables();
-        creditDetailsTemplate.CreditDetails(clientId, uid)
+        preconditionsFoScript.DeleteAllValuesFromTheTables();  // Видалення всіх записів з таблиць по рахунку
+        creditDetailsTemplate.CreditDetails(clientId, uid)     // Порівняння очікуваного результату з фактичним
                 .statusCode(200)
                 .body("result.script", equalTo("0"))
                 .body("result.graceSum", equalTo(0))
