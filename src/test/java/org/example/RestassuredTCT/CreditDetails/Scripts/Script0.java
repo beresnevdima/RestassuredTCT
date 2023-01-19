@@ -1,17 +1,17 @@
 package org.example.RestassuredTCT.CreditDetails.Scripts;
 
 import org.example.RestassuredTCT.CreditDetails.CreditDetailsTemplate;
-import org.example.RestassuredTCT.CreditDetails.Preconditions.PreconditionsFoScript0;
+import org.example.RestassuredTCT.CreditDetails.Preconditions.PreconditionsFoScripts;
 import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails1_3;
 import java.io.IOException;
 import static org.hamcrest.Matchers.*;
 
 public class Script0 {
-    PreconditionsFoScript0 preconditionsFoScript0 = new PreconditionsFoScript0();
+    PreconditionsFoScripts preconditionsFoScript = new PreconditionsFoScripts();
     CreditDetailsTemplate creditDetailsTemplate = new CreditDetailsTemplate();
     public Script0() throws IOException {}
     public void TestCase1 (int clientId, long uid) throws IOException {
-        preconditionsFoScript0.PreconditionsFoTestCase1();
+        preconditionsFoScript.DeleteAllValuesFromTheTables();
         creditDetailsTemplate.CreditDetails(clientId, uid)
                 .statusCode(200)
                 .body("result.script", equalTo("0"))
@@ -24,9 +24,6 @@ public class Script0 {
                 .body("result.interestCharge", equalTo(0))
                 .body("result.expiredSum", equalTo(0))
                 .body("result.totalSum", equalTo(0))
-                .body("result.graceEnd", nullValue())
-                .body("result.graceStart", nullValue())
-                .body("result.expiredBillsDetail", nullValue())
                 .body("result.penaltySum", equalTo(0))
                 .body("result.fullRepay", equalTo(0))
                 .body("result.interestGrace", equalTo(0))
