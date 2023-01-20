@@ -6,12 +6,13 @@ import java.io.IOException;
 import static io.restassured.RestAssured.given;
 
 public class CreditDetailsTemplate {
-    SidTCT sidTCT = new SidTCT();
-    String sid = sidTCT.getSid();
+    SidTCT sidTCT;
     public long uid;
     public int clientId;
 
-    public CreditDetailsTemplate() throws IOException {}
+    public CreditDetailsTemplate(SidTCT sidTCT) {
+        this.sidTCT = sidTCT;
+    }
 
     public ValidatableResponse CreditDetails(int clientId, long uid) throws IOException {
         this.uid = uid;
@@ -22,7 +23,7 @@ public class CreditDetailsTemplate {
         return given()
                 .when()
                 .header("Content-Type", "application/json")
-                .header("sid", sid)
+                .header("sid", sidTCT.getSid())
                 .header("Client-Id", clientId)
                 .get(baseUrl + "/api/v1/info/thing/details/"+uid)
                 .then().log().all();

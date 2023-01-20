@@ -7,9 +7,12 @@ import java.io.IOException;
 import static org.hamcrest.Matchers.*;
 
 public class Script1 {
-    CreditDetailsTemplate creditDetailsTemplate = new CreditDetailsTemplate();
-    PreconditionsFoScripts preconditionsFoScripts = new PreconditionsFoScripts();
-    public Script1() throws IOException {}
+    CreditDetailsTemplate creditDetailsTemplate;
+    PreconditionsFoScripts preconditionsFoScripts;
+    public Script1 (CreditDetailsTemplate creditDetailsTemplate) throws IOException {
+        this.creditDetailsTemplate = creditDetailsTemplate;
+        this.preconditionsFoScripts = new PreconditionsFoScripts();
+    }
 
     // Клієнт зробив одну трату в рахунок кредитних коштів,
     // та знаходиться у 1му місяці пільгового періоду
