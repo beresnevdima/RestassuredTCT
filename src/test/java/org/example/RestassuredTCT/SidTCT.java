@@ -41,24 +41,22 @@ public class SidTCT {
         return (sid);
     }
 
-    public String getSid(){
-        System.out.println(sid);
-        System.out.println(LocalDateTime.now());
-        System.out.println(timeTiLive);
-        if( sid == null || LocalDateTime.now().isAfter(timeTiLive) ){
-            this.sid = getSid1();
-            this.timeTiLive = LocalDateTime.now().plusMinutes( 30 );
-            return sid;
-        }
-        return sid;
-    }
-
 //    public String getSid(){
-//        System.out.println("230120hvnXXjx9fjk2lt");
-//        return "230120hvnXXjx9fjk2lt";
-//
-//
+////        System.out.println(sid);
+////        System.out.println(LocalDateTime.now());
+////        System.out.println(timeTiLive);
+//        if( sid == null || LocalDateTime.now().isAfter(timeTiLive) ){
+//            this.sid = getSid1();
+//            this.timeTiLive = LocalDateTime.now().plusMinutes( 60 );
+//            return sid;
+//        }
+//        return sid;
 //    }
+
+    public String getSid(){
+        System.out.println("230120hvnXXjx9fjk2lt");
+        return "230123k0fXXjx9z9x2nu";
+    }
 
 //    IAMSessionComponent iamSessionComponent = new IAMSessionComponent() {
 //        @Override
