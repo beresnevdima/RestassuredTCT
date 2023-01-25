@@ -16,6 +16,9 @@ public class RunTest {
     Script2 script2;
     Script3 script3;
     Script5 script5;
+    Script6 script6;
+    Script7 script7;
+    Script8 script8;
 
     @BeforeAll
     static void generateSid() throws IOException {
@@ -29,6 +32,9 @@ public class RunTest {
      script2 = new Script2(creditDetailsTemplate);
      script3 = new Script3(creditDetailsTemplate);
      script5 = new Script5(creditDetailsTemplate);
+     script6 = new Script6(creditDetailsTemplate);
+     script7 = new Script7(creditDetailsTemplate);
+     script8 = new Script8(creditDetailsTemplate);
     }
 
     // Перед запуском теста ОБОВʼЯЗКОВО перевести годинник на дату 02.01.2023
@@ -41,6 +47,13 @@ public class RunTest {
         script2.TestCase2(clientId, uid);
         script3.TestCase1(clientId, uid);
         script5.TestCase1(clientId, uid);
+        script5.TestCase2(clientId, uid);
+        script6.TestCase1(clientId, uid);
+        script6.TestCase2(clientId, uid);
+        script7.TestCase1(clientId, uid);
+        script7.TestCase2(clientId, uid);
+        script8.TestCase1(clientId, uid);
+        script8.TestCase2(clientId, uid);
 
     }
 }
