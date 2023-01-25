@@ -1,9 +1,6 @@
 package org.example.RestassuredTCT.CreditDetails;
 
-import org.example.RestassuredTCT.CreditDetails.Scripts.Script0;
-import org.example.RestassuredTCT.CreditDetails.Scripts.Script1;
-import org.example.RestassuredTCT.CreditDetails.Scripts.Script2;
-import org.example.RestassuredTCT.CreditDetails.Scripts.Script3;
+import org.example.RestassuredTCT.CreditDetails.Scripts.*;
 import org.example.RestassuredTCT.SidTCT;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -18,6 +15,7 @@ public class RunTest {
     Script1 script1;
     Script2 script2;
     Script3 script3;
+    Script5 script5;
 
     @BeforeAll
     static void generateSid() throws IOException {
@@ -30,16 +28,19 @@ public class RunTest {
      script1 = new Script1(creditDetailsTemplate);
      script2 = new Script2(creditDetailsTemplate);
      script3 = new Script3(creditDetailsTemplate);
+     script5 = new Script5(creditDetailsTemplate);
     }
 
     // Перед запуском теста ОБОВʼЯЗКОВО перевести годинник на дату 02.01.2023
 @Test
     public void runTests () throws IOException {
-//        script0.TestCase1(clientId, uid);
-//        script1.TestCase1(clientId,uid);
-//        script1.TestCase2(clientId,uid);
-//        script2.TestCase1(clientId, uid);
+        script0.TestCase1(clientId, uid);
+        script1.TestCase1(clientId,uid);
+        script1.TestCase2(clientId,uid);
+        script2.TestCase1(clientId, uid);
+        script2.TestCase2(clientId, uid);
         script3.TestCase1(clientId, uid);
+        script5.TestCase1(clientId, uid);
 
     }
 }

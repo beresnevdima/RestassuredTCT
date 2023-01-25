@@ -35,7 +35,7 @@ public class DBConnection {
              Statement stmt = connect.createStatement()) {
             stmt.executeUpdate(sqlSet);
         } catch (SQLException e) {
-            throw new Error("Problem", e);
+            throw new Error("Database connection problem", e);
         }
     }
 

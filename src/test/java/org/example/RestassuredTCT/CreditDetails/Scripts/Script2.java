@@ -15,6 +15,7 @@ public class Script2 {
         this.preconditionsFoScripts = new PreconditionsFoScripts();
     }
 
+    // виставлений перший поточний min_bill
     public void TestCase1 (int clientId, long uid) throws IOException {
         preconditionsFoScripts.DeleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
         preconditionsFoScripts.PreconditionsFoScript2_1();       // Додавання тестових данних до БД
@@ -46,7 +47,7 @@ public class Script2 {
     }
 
 
-    // часткове погашення
+    // часткове погашення поточного min_bill
     public void TestCase2 (int clientId, long uid) throws IOException {
         preconditionsFoScripts.DeleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
         preconditionsFoScripts.PreconditionsFoScript2_2();       // Додавання тестових данних до БД
@@ -76,5 +77,4 @@ public class Script2 {
                 .body("result.otherFees", equalTo(0))
                 .extract().as(ResponseCreditDetails1_3.class);
     }
-
 }

@@ -86,7 +86,38 @@ public class PreconditionsFoScripts {
             "(acc, billing_date, tran_id_repaid, date_time_repaid, bill, outstanding_bill, grace_bill, grace_outstanding_bill, tlm, lp_done, lp_done_date)\n" +
             "VALUES('"+acc+"', '2023-01-01', '7760691', '2023-01-01 13:02:25.000', 10.00, 3.00, 50.00, 43.00, '2023-01-02 19:22:57.962', NULL, NULL);\n";
 
-    String PreconditionsFoScript3_1 = "";
+    String PreconditionsFoScript3_1 = PreconditionsFoScript2_1 +
+            "INSERT INTO un62.debt_operation\n" +
+            "(date_calc, tran_id, tran_id_repayment, acc, tran_date_time, debt_date_time, amt_debt, interest_rate, interest, count_day, amt_repayment, tlm, tran_tlm)\n" +
+            "VALUES('2022-12-01', '7769690', '7760691', '"+acc+"', '2023-01-01 13:02:25.000', '2022-12-01 12:45:27.000', 40.00, 0.00, 0.00, NULL, 10.00, '2023-01-02 19:22:58.038', '2023-01-01 13:02:25.000');\n" +
+            "\n" +
+            "INSERT INTO un62.min_bill\n" +
+            "(acc, billing_date, tran_id_repaid, date_time_repaid, bill, outstanding_bill, grace_bill, grace_outstanding_bill, tlm, lp_done, lp_done_date)\n" +
+            "VALUES('"+acc+"', '2023-01-01', '7760691', '2023-01-01 13:02:25.000', 10.00, 0.00, 50.00, 40.00, '2023-01-02 19:22:57.962', NULL, NULL);\n";
+
+    String PreconditionsFoScript5_1 =
+                    "INSERT INTO un62.debt_operation\n" +
+                    "(date_calc, tran_id, tran_id_repayment, acc, tran_date_time, debt_date_time, amt_debt, interest_rate, interest, count_day, amt_repayment, tlm, tran_tlm)\n" +
+                    "VALUES('2022-11-01', '7769690', '*', '"+acc+"', '2022-11-01 12:45:27.000', '2022-11-01 12:45:27.000', 50.00, 0.00, 0.00, NULL, NULL, '2022-12-01 12:45:27.000', '2022-12-01 12:45:27.000');\n" +
+                    "\n" +
+                    "INSERT INTO un62.min_bill\n" +
+                    "(acc, billing_date, tran_id_repaid, date_time_repaid, bill, outstanding_bill, grace_bill, grace_outstanding_bill, tlm, lp_done, lp_done_date)\n" +
+                    "VALUES('"+acc+"', '2022-12-01', '*', '2022-12-01 00:00:00.000', 10.00, 10.00, 50.00, 50.00, '2023-01-01 00:25:00.000', NULL, NULL);\n" +
+                    "INSERT INTO un62.min_bill\n" +
+                    "(acc, billing_date, tran_id_repaid, date_time_repaid, bill, outstanding_bill, grace_bill, grace_outstanding_bill, tlm, lp_done, lp_done_date)\n" +
+                    "VALUES('"+acc+"', '2023-01-01', '*', '2023-01-01 00:00:00.000', 12.00, 12.00, 0.00, 0.00, '2023-01-01 00:25:00.000', NULL, NULL);\n" +
+                    "\n" +
+                    "INSERT INTO un62.interest_charges_v2\n" +
+                    "(date_calc, acc, interest, accum, state, amount, debit, credit, is_double, is_end_of_grace, rate, client_id)\n" +
+                    "VALUES('2022-12-31', '"+acc+"', 0.04, 5.12, 'R', 50.00, 0.00, 0.00, NULL, NULL, 25.90, 500341);\n" +
+                    "INSERT INTO un62.interest_charges_v2\n" +
+                    "(date_calc, acc, interest, accum, state, amount, debit, credit, is_double, is_end_of_grace, rate, client_id)\n" +
+                    "VALUES('2023-01-01', '"+acc+"', 0.04, 0.04, 'D', 50.00, 0.00, 0.00, NULL, NULL, 25.90, 500341);\n" +
+                    "\n" +
+                    "INSERT INTO un62.grace_period\n" +
+                    "(tran_id, acc, grace_start, grace_end, tran_id_repaid, grace_repaid, tlm)\n" +
+                    "VALUES('7769690', '"+acc+"', '2022-11-01', '2022-12-31', NULL, NULL, '2022-12-01 12:45:27.000');\n";
+
 
     DBConnection sqlConnection = new DBConnection();
     public PreconditionsFoScripts() throws IOException {}
@@ -113,6 +144,10 @@ public class PreconditionsFoScripts {
 
     public void PreconditionsFoScript3_1(){
         sqlConnection.doUpdate(PreconditionsFoScript3_1);
+    }
+
+    public void PreconditionsFoScript5_1(){
+        sqlConnection.doUpdate(PreconditionsFoScript5_1);
     }
 
 }
