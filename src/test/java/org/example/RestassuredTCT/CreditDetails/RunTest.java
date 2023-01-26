@@ -1,5 +1,6 @@
 package org.example.RestassuredTCT.CreditDetails;
 
+import org.example.RestassuredTCT.CreditDetails.Others.Script_6;
 import org.example.RestassuredTCT.CreditDetails.Scripts.*;
 import org.example.RestassuredTCT.SidTCT;
 import org.junit.jupiter.api.BeforeAll;
@@ -19,6 +20,7 @@ public class RunTest {
     Script6 script6;
     Script7 script7;
     Script8 script8;
+//    Script_6 script_6;
 
     @BeforeAll
     static void generateSid() throws IOException {
@@ -35,6 +37,7 @@ public class RunTest {
      script6 = new Script6(creditDetailsTemplate);
      script7 = new Script7(creditDetailsTemplate);
      script8 = new Script8(creditDetailsTemplate);
+//     script_6 = new Script_6(creditDetailsTemplate);
     }
 
     // Перед запуском теста ОБОВʼЯЗКОВО перевести годинник на дату 02.01.2023
@@ -54,6 +57,7 @@ public class RunTest {
         script7.TestCase2(clientId, uid);
         script8.TestCase1(clientId, uid);
         script8.TestCase2(clientId, uid);
+//        script_6.TestCase1(clientId, uid);
 
     }
 }

@@ -54,8 +54,7 @@ public class SidTCT {
 //    }
 
     public String getSid(){
-        System.out.println("230120hvnXXjx9fjk2lt");
-        return "230125faoXXjx9yrt2qc";
+        return "230126hctXXj9dndt0x9";
     }
 
 //    IAMSessionComponent iamSessionComponent = new IAMSessionComponent() {
