@@ -18,9 +18,9 @@ public class Script0 {
      }
 
 //  Клієнт не використовує кредитний ліміт
-    public void TestCase1 (int clientId, long uid) throws IOException {
-        preconditionsFoScript.DeleteAllValuesFromTheTables();  // Видалення всіх записів з таблиць по рахунку
-        creditDetailsTemplate.CreditDetails(clientId, uid)     // Порівняння очікуваного результату з фактичним
+    public void testCase1 (int clientId, long uid) throws IOException {
+        preconditionsFoScript.deleteAllValuesFromTheTables();  // Видалення всіх записів з таблиць по рахунку
+        creditDetailsTemplate.creditDetails(clientId, uid)     // Порівняння очікуваного результату з фактичним
                 .statusCode(200)
                 .body("result.script", equalTo("0"))
                 .body("result.graceSum", equalTo(0))

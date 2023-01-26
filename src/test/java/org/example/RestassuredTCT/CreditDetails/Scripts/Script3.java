@@ -17,9 +17,9 @@ public class Script3 {
 
     //   Повне погашення поточного min_bill
     public void TestCase1 (int clientId, long uid) throws IOException {
-        preconditionsFoScripts.DeleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
-        preconditionsFoScripts.PreconditionsFoScript3_1();       // Додавання тестових данних до БД
-        creditDetailsTemplate.CreditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним
+        preconditionsFoScripts.deleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
+        preconditionsFoScripts.preconditionsFoScript3_1();       // Додавання тестових данних до БД
+        creditDetailsTemplate.creditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним
                 .statusCode(200)
                 .body("result.script", equalTo("3"))
                 .body("result.graceSum", equalTo(40.00F))

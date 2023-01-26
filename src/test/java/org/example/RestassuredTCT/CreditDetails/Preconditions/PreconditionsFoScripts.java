@@ -255,59 +255,59 @@ public class PreconditionsFoScripts {
             DBConnection sqlConnection = new DBConnection();
     public PreconditionsFoScripts() throws IOException {}
 
-    public void DeleteAllValuesFromTheTables (){
+    public void deleteAllValuesFromTheTables (){
         sqlConnection.doUpdate(DeleteAllValuesFromTheTables);
     }
 
-    public void PreconditionsFoScript1_1(){
+    public void preconditionsFoScript1_1(){
         sqlConnection.doUpdate(PreconditionsFoScript1_1);
     }
 
-    public void PreconditionsFoScript1_2(){
+    public void preconditionsFoScript1_2(){
         sqlConnection.doUpdate(PreconditionsFoScript1_2);
     }
 
-    public void PreconditionsFoScript2_1(){
+    public void preconditionsFoScript2_1(){
         sqlConnection.doUpdate(PreconditionsFoScript2_1);
     }
 
-    public void PreconditionsFoScript2_2(){
+    public void preconditionsFoScript2_2(){
         sqlConnection.doUpdate(PreconditionsFoScript2_2);
     }
 
-    public void PreconditionsFoScript3_1(){
+    public void preconditionsFoScript3_1(){
         sqlConnection.doUpdate(PreconditionsFoScript3_1);
     }
 
-    public void PreconditionsFoScript5_1(){
+    public void preconditionsFoScript5_1(){
         sqlConnection.doUpdate(PreconditionsFoScript5_1);
     }
 
-    public void PreconditionsFoScript5_2(){
+    public void preconditionsFoScript5_2(){
         sqlConnection.doUpdate(PreconditionsFoScript5_2);
     }
 
-    public void PreconditionsFoScript6_1(){
+    public void preconditionsFoScript6_1(){
         sqlConnection.doUpdate(PreconditionsFoScript6_1);
     }
 
-    public void PreconditionsFoScript6_2(){
+    public void preconditionsFoScript6_2(){
         sqlConnection.doUpdate(PreconditionsFoScript6_2);
     }
 
-    public void PreconditionsFoScript7_1(){
+    public void preconditionsFoScript7_1(){
         sqlConnection.doUpdate(PreconditionsFoScript7_1);
     }
 
-    public void PreconditionsFoScript7_2(){
+    public void preconditionsFoScript7_2(){
         sqlConnection.doUpdate(PreconditionsFoScript7_2);
     }
 
-    public void PreconditionsFoScript8_1(){
+    public void preconditionsFoScript8_1(){
         sqlConnection.doUpdate(PreconditionsFoScript8_1);
     }
 
-    public void PreconditionsFoScript8_2(){
+    public void preconditionsFoScript8_2(){
         sqlConnection.doUpdate(PreconditionsFoScript8_2);
     }
 

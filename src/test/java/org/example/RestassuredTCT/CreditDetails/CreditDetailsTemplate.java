@@ -17,7 +17,7 @@ public class CreditDetailsTemplate {
         this.sidTCT = sidTCT;
     }
 
-    public ValidatableResponse CreditDetails(int clientId, long uid) throws IOException {
+    public ValidatableResponse creditDetails(int clientId, long uid) throws IOException {
         this.uid = uid;
         this.clientId = clientId;
 

@@ -17,9 +17,9 @@ public class Script1 {
     // Клієнт зробив одну трату в рахунок кредитних коштів,
     // та знаходиться у 1му місяці пільгового періоду
     public void TestCase1 (int clientId, long uid) throws IOException {
-        preconditionsFoScripts.DeleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
-        preconditionsFoScripts.PreconditionsFoScript1_1();       // Додавання тестових данних до БД
-        creditDetailsTemplate.CreditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним
+        preconditionsFoScripts.deleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
+        preconditionsFoScripts.preconditionsFoScript1_1();       // Додавання тестових данних до БД
+        creditDetailsTemplate.creditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним
                 .statusCode(200)
                 .body("result.script", equalTo("1"))
                 .body("result.graceSum", equalTo(0))
@@ -50,9 +50,9 @@ public class Script1 {
     // і одне поповнення на сумму меньшу ніж загальний відʼємний баланс,
     // та знаходиться у 1му місяці пільгового періоду
     public void TestCase2 (int clientId, long uid) throws IOException {
-        preconditionsFoScripts.DeleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
-        preconditionsFoScripts.PreconditionsFoScript1_2();       // Додавання тестових данних до БД
-        creditDetailsTemplate.CreditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним
+        preconditionsFoScripts.deleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
+        preconditionsFoScripts.preconditionsFoScript1_2();       // Додавання тестових данних до БД
+        creditDetailsTemplate.creditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним
                 .statusCode(200)
                 .body("result.script", equalTo("1"))
                 .body("result.graceSum", equalTo(0))

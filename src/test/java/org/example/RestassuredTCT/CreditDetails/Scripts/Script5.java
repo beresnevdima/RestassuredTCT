@@ -21,9 +21,9 @@ public class Script5 {
 
     //   Є один просрочений min_bill (клієнт поза пільгового періоду)
     public void TestCase1 (int clientId, long uid) throws IOException {
-        preconditionsFoScripts.DeleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
-        preconditionsFoScripts.PreconditionsFoScript5_1();       // Додавання тестових данних до БД
-        creditDetailsTemplate.CreditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним
+        preconditionsFoScripts.deleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
+        preconditionsFoScripts.preconditionsFoScript5_1();       // Додавання тестових данних до БД
+        creditDetailsTemplate.creditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним
                 .statusCode(200)
                 .body("result.script", equalTo("5"))
                 .body("result.graceSum", equalTo(0.00F))
@@ -55,9 +55,9 @@ public class Script5 {
 
     //   Є один просрочений частково погашений min_bill (клієнт поза пільгового періоду)
     public void TestCase2 (int clientId, long uid) throws IOException {
-        preconditionsFoScripts.DeleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
-        preconditionsFoScripts.PreconditionsFoScript5_2();       // Додавання тестових данних до БД
-        creditDetailsTemplate.CreditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним
+        preconditionsFoScripts.deleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
+        preconditionsFoScripts.preconditionsFoScript5_2();       // Додавання тестових данних до БД
+        creditDetailsTemplate.creditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним
                 .statusCode(200)
                 .body("result.script", equalTo("5"))
                 .body("result.graceSum", equalTo(0.00F))

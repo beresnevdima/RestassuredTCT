@@ -43,7 +43,7 @@ public class RunTest {
     // Перед запуском теста ОБОВʼЯЗКОВО перевести годинник на дату 02.01.2023
 @Test
     public void runTests () throws IOException {
-        script0.TestCase1(clientId, uid);
+        script0.testCase1(clientId, uid);
         script1.TestCase1(clientId,uid);
         script1.TestCase2(clientId,uid);
         script2.TestCase1(clientId, uid);
