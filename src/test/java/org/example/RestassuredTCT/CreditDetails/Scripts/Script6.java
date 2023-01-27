@@ -20,7 +20,7 @@ public class Script6 {
     }
 
     //   Є два просрочених min_bill (клієнт поза пільгового періоду)
-    public void TestCase1 (int clientId, long uid) throws IOException {
+    public void testCase1 (int clientId, long uid) throws IOException {
         preconditionsFoScripts.deleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
         preconditionsFoScripts.preconditionsFoScript6_1();       // Додавання тестових данних до БД
         creditDetailsTemplate.creditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним
@@ -57,7 +57,7 @@ public class Script6 {
     }
 
     //   Є два просрочених min_bill. Один з яких частково погашений (клієнт поза пільгового періоду)
-    public void TestCase2 (int clientId, long uid) throws IOException {
+    public void testCase2 (int clientId, long uid) throws IOException {
         preconditionsFoScripts.deleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
         preconditionsFoScripts.preconditionsFoScript6_2();       // Додавання тестових данних до БД
         creditDetailsTemplate.creditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним

@@ -16,7 +16,7 @@ public class Script3 {
     }
 
     //   Повне погашення поточного min_bill
-    public void TestCase1 (int clientId, long uid) throws IOException {
+    public void testCase1 (int clientId, long uid) throws IOException {
         preconditionsFoScripts.deleteAllValuesFromTheTables();   // Видалення всіх записів з таблиць по рахунку
         preconditionsFoScripts.preconditionsFoScript3_1();       // Додавання тестових данних до БД
         creditDetailsTemplate.creditDetails(clientId, uid)       // Порівняння очікуваного результату з фактичним

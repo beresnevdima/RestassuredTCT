@@ -1,6 +1,5 @@
 package org.example.RestassuredTCT.CreditDetails;
 
-import org.example.RestassuredTCT.CreditDetails.Others.Script_6;
 import org.example.RestassuredTCT.CreditDetails.Scripts.*;
 import org.example.RestassuredTCT.SidTCT;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,7 +19,7 @@ public class RunTest {
     Script6 script6;
     Script7 script7;
     Script8 script8;
-//    Script_6 script_6;
+
 
     @BeforeAll
     static void generateSid() throws IOException {
@@ -37,27 +36,24 @@ public class RunTest {
      script6 = new Script6(creditDetailsTemplate);
      script7 = new Script7(creditDetailsTemplate);
      script8 = new Script8(creditDetailsTemplate);
-//     script_6 = new Script_6(creditDetailsTemplate);
     }
 
     // Перед запуском теста ОБОВʼЯЗКОВО перевести годинник на дату 02.01.2023
 @Test
     public void runTests () throws IOException {
         script0.testCase1(clientId, uid);
-        script1.TestCase1(clientId,uid);
-        script1.TestCase2(clientId,uid);
-        script2.TestCase1(clientId, uid);
-        script2.TestCase2(clientId, uid);
-        script3.TestCase1(clientId, uid);
-        script5.TestCase1(clientId, uid);
-        script5.TestCase2(clientId, uid);
-        script6.TestCase1(clientId, uid);
-        script6.TestCase2(clientId, uid);
-        script7.TestCase1(clientId, uid);
-        script7.TestCase2(clientId, uid);
-        script8.TestCase1(clientId, uid);
-        script8.TestCase2(clientId, uid);
-//        script_6.TestCase1(clientId, uid);
-
+        script1.testCase1(clientId,uid);
+        script1.testCase2(clientId,uid);
+        script2.testCase1(clientId, uid);
+        script2.testCase2(clientId, uid);
+        script3.testCase1(clientId, uid);
+        script5.testCase1(clientId, uid);
+        script5.testCase2(clientId, uid);
+        script6.testCase1(clientId, uid);
+        script6.testCase2(clientId, uid);
+        script7.testCase1(clientId, uid);
+        script7.testCase2(clientId, uid);
+        script8.testCase1(clientId, uid);
+        script8.testCase2(clientId, uid);
     }
 }
