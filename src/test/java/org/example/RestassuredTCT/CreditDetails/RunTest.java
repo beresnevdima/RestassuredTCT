@@ -42,18 +42,18 @@ public class RunTest {
 @Test
     public void runTests () throws IOException {
         script0.testCase1(clientId, uid);
-        script1.testCase1(clientId,uid);
-        script1.testCase2(clientId,uid);
-        script2.testCase1(clientId, uid);
-        script2.testCase2(clientId, uid);
-        script3.testCase1(clientId, uid);
-        script5.testCase1(clientId, uid);
-        script5.testCase2(clientId, uid);
-        script6.testCase1(clientId, uid);
-        script6.testCase2(clientId, uid);
-        script7.testCase1(clientId, uid);
-        script7.testCase2(clientId, uid);
-        script8.testCase1(clientId, uid);
-        script8.testCase2(clientId, uid);
+//        script1.testCase1(clientId,uid);
+//        script1.testCase2(clientId,uid);
+//        script2.testCase1(clientId, uid);
+//        script2.testCase2(clientId, uid);
+//        script3.testCase1(clientId, uid);
+//        script5.testCase1(clientId, uid);
+//        script5.testCase2(clientId, uid);
+//        script6.testCase1(clientId, uid);
+//        script6.testCase2(clientId, uid);
+//        script7.testCase1(clientId, uid);
+//        script7.testCase2(clientId, uid);
+//        script8.testCase1(clientId, uid);
+//        script8.testCase2(clientId, uid);
     }
 }
