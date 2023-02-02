@@ -1,4 +1,4 @@
-package org.example.RestassuredTCT;
+package org.example.RestassuredTCT.CreditDetails.Preconditions;
 
 import org.example.RestassuredTCT.DTO.Response.ResponseSid;
 import org.example.RestassuredTCT.DTO.Request.RequestGetSid;

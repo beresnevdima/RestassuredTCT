@@ -1,7 +1,7 @@
-package org.example.RestassuredTCT.CreditDetails;
+package org.example.RestassuredTCT.CreditDetails.Preconditions;
 
 import io.restassured.response.ValidatableResponse;
-import org.example.RestassuredTCT.SidTCT;
+
 import java.io.IOException;
 import static io.restassured.RestAssured.given;
 

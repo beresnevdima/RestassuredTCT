@@ -1,6 +1,6 @@
 package org.example.RestassuredTCT.CreditDetails.Scripts;
 
-import org.example.RestassuredTCT.CreditDetails.CreditDetailsTemplate;
+import org.example.RestassuredTCT.CreditDetails.Preconditions.CreditDetailsTemplate;
 import org.example.RestassuredTCT.CreditDetails.Preconditions.PreconditionsFoScripts;
 import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails1_3;
 import java.io.IOException;
