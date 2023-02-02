@@ -1,21 +1,13 @@
 package org.example.RestassuredTCT.CreditDetails;
 
-import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 import org.example.RestassuredTCT.SidTCT;
 import java.io.IOException;
 import static io.restassured.RestAssured.given;
-import static io.restassured.config.JsonConfig.jsonConfig;
-import static io.restassured.path.json.config.JsonPathConfig.NumberReturnType.BIG_DECIMAL;
 
 public class CreditDetailsTemplate {
-    SidTCT sidTCT;
     public long uid;
     public int clientId;
-
-    public CreditDetailsTemplate(SidTCT sidTCT) {
-        this.sidTCT = sidTCT;
-    }
 
     public ValidatableResponse creditDetails(int clientId, long uid) throws IOException {
         this.uid = uid;
@@ -26,7 +18,7 @@ public class CreditDetailsTemplate {
         return given()
                 .when()
                 .header("Content-Type", "application/json")
-                .header("sid", sidTCT.getSid())
+                .header("sid", SidTCT.getSidTCT().getSid())
                 .header("Client-Id", clientId)
                 .get(baseUrl + "/api/v1/info/thing/details/"+uid)
                 .then().log().all();

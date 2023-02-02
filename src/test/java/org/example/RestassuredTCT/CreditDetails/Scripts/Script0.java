@@ -3,23 +3,17 @@ package org.example.RestassuredTCT.CreditDetails.Scripts;
 import org.example.RestassuredTCT.CreditDetails.CreditDetailsTemplate;
 import org.example.RestassuredTCT.CreditDetails.Preconditions.PreconditionsFoScripts;
 import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails1_3;
-import org.example.RestassuredTCT.SidTCT;
-
 import java.io.IOException;
 import static org.hamcrest.Matchers.*;
 
 public class Script0 {
-    PreconditionsFoScripts preconditionsFoScript;
-    CreditDetailsTemplate creditDetailsTemplate;
+    PreconditionsFoScripts preconditionsFoScripts = new PreconditionsFoScripts();
+    CreditDetailsTemplate creditDetailsTemplate = new CreditDetailsTemplate();
+    public Script0() throws IOException {}
 
-     public Script0 (CreditDetailsTemplate creditDetailsTemplate) throws IOException {
-         this.creditDetailsTemplate = creditDetailsTemplate;
-         this.preconditionsFoScript = new PreconditionsFoScripts();
-     }
-
-//  Клієнт не використовує кредитний ліміт
+    //  Клієнт не використовує кредитний ліміт
     public void testCase1 (int clientId, long uid) throws IOException {
-        preconditionsFoScript.deleteAllValuesFromTheTables();  // Видалення всіх записів з таблиць по рахунку
+        preconditionsFoScripts.deleteAllValuesFromTheTables();  // Видалення всіх записів з таблиць по рахунку
         creditDetailsTemplate.creditDetails(clientId, uid)     // Порівняння очікуваного результату з фактичним
                 .statusCode(200)
                 .body("result.script", equalTo("0"))

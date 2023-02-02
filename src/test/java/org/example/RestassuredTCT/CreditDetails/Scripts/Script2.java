@@ -4,16 +4,13 @@ import org.example.RestassuredTCT.CreditDetails.CreditDetailsTemplate;
 import org.example.RestassuredTCT.CreditDetails.Preconditions.PreconditionsFoScripts;
 import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails1_3;
 import java.io.IOException;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
 
 public class Script2 {
 
-    CreditDetailsTemplate creditDetailsTemplate;
-    PreconditionsFoScripts preconditionsFoScripts;
-    public Script2 (CreditDetailsTemplate creditDetailsTemplate) throws IOException {
-        this.creditDetailsTemplate = creditDetailsTemplate;
-        this.preconditionsFoScripts = new PreconditionsFoScripts();
-    }
+    PreconditionsFoScripts preconditionsFoScripts = new PreconditionsFoScripts();
+    CreditDetailsTemplate creditDetailsTemplate = new CreditDetailsTemplate();
+    public Script2() throws IOException {}
 
     // виставлений перший поточний min_bill
     public void testCase1 (int clientId, long uid) throws IOException {

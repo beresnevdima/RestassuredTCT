@@ -1,6 +1,5 @@
 package org.example.RestassuredTCT;
 
-
 import org.example.RestassuredTCT.DTO.Response.ResponseSid;
 import org.example.RestassuredTCT.DTO.Request.RequestGetSid;
 import java.io.IOException;
@@ -13,10 +12,9 @@ public class SidTCT {
     private final String SCHEME;
     private final String LOGIN;
     private final String PASSWORD;
-
     private String sid;
-
     private LocalDateTime timeTiLive = LocalDateTime.now();
+    private static SidTCT sidTCT;
 
     public SidTCT() throws IOException{
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
@@ -43,9 +41,6 @@ public class SidTCT {
     }
 
     public String getSid(){
-//        System.out.println(sid);
-//        System.out.println(LocalDateTime.now());
-//        System.out.println(timeTiLive);
         if( sid == null || LocalDateTime.now().isAfter(timeTiLive) ){
             this.sid = getSid1();
             this.timeTiLive = LocalDateTime.now().plusMinutes( 60 );
@@ -55,6 +50,13 @@ public class SidTCT {
     }
 
 //    public String getSid(){
-//        return "230127aicXXjx99jw2tk";
+//        return "230202gfvXXjx962t33s";
 //    }
+
+    public static SidTCT getSidTCT() throws IOException {
+        if (sidTCT == null){
+            sidTCT = new SidTCT();
+        }
+        return sidTCT;
+    }
 }

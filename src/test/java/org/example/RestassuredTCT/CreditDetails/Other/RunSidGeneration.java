@@ -1,10 +1,5 @@
 package org.example.RestassuredTCT.CreditDetails.Other;
 
-import org.example.RestassuredTCT.CreditDetails.CreditDetailsTemplate;
-import org.example.RestassuredTCT.CreditDetails.Scripts.Script0;
-import org.example.RestassuredTCT.SidTCT;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -14,9 +9,7 @@ public class RunSidGeneration {
     long uid = 2020005024L;
     ScriptTest0 scriptTest0 = new ScriptTest0();
 
-    public RunSidGeneration() throws IOException {
-    }
-
+    public RunSidGeneration() throws IOException {}
 
     @Test
     public void runTests () throws IOException {

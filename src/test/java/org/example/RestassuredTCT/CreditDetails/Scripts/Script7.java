@@ -3,20 +3,14 @@ package org.example.RestassuredTCT.CreditDetails.Scripts;
 import org.example.RestassuredTCT.CreditDetails.CreditDetailsTemplate;
 import org.example.RestassuredTCT.CreditDetails.Preconditions.PreconditionsFoScripts;
 import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails5_8;
-
 import java.io.IOException;
-
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.Matchers.*;
 
 public class Script7 {
+    PreconditionsFoScripts preconditionsFoScripts = new PreconditionsFoScripts();
+    CreditDetailsTemplate creditDetailsTemplate = new CreditDetailsTemplate();
 
-    CreditDetailsTemplate creditDetailsTemplate;
-    PreconditionsFoScripts preconditionsFoScripts;
-    public Script7(CreditDetailsTemplate creditDetailsTemplate) throws IOException {
-        this.creditDetailsTemplate = creditDetailsTemplate;
-        this.preconditionsFoScripts = new PreconditionsFoScripts();
-    }
+    public Script7() throws IOException {}
 
     //   Є три просрочених min_bill (клієнт поза пільгового періоду)
     public void testCase1 (int clientId, long uid) throws IOException {

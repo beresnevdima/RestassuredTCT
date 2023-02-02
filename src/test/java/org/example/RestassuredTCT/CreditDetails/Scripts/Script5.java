@@ -2,22 +2,15 @@ package org.example.RestassuredTCT.CreditDetails.Scripts;
 
 import org.example.RestassuredTCT.CreditDetails.CreditDetailsTemplate;
 import org.example.RestassuredTCT.CreditDetails.Preconditions.PreconditionsFoScripts;
-import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails1_3;
 import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails5_8;
-import org.springframework.cache.support.NullValue;
-
 import java.io.IOException;
-
 import static org.hamcrest.Matchers.*;
 
 public class Script5 {
+    PreconditionsFoScripts preconditionsFoScripts = new PreconditionsFoScripts();
+    CreditDetailsTemplate creditDetailsTemplate = new CreditDetailsTemplate();
 
-    CreditDetailsTemplate creditDetailsTemplate;
-    PreconditionsFoScripts preconditionsFoScripts;
-    public Script5(CreditDetailsTemplate creditDetailsTemplate) throws IOException {
-        this.creditDetailsTemplate = creditDetailsTemplate;
-        this.preconditionsFoScripts = new PreconditionsFoScripts();
-    }
+    public Script5() throws IOException {}
 
     //   Є один просрочений min_bill (клієнт поза пільгового періоду)
     public void testCase1 (int clientId, long uid) throws IOException {

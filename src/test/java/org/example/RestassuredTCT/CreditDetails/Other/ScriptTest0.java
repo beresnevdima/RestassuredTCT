@@ -1,26 +1,16 @@
 package org.example.RestassuredTCT.CreditDetails.Other;
 
-import org.example.RestassuredTCT.CreditDetails.CreditDetailsTemplate;
 import org.example.RestassuredTCT.CreditDetails.Preconditions.PreconditionsFoScripts;
 import org.example.RestassuredTCT.DTO.Response.ResponseCreditDetails1_3;
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
-
 import static org.hamcrest.Matchers.equalTo;
 
 public class ScriptTest0 {
     PreconditionsFoScripts preconditionsFoScript  = new PreconditionsFoScripts();
     CreditDetailsTemplateSingleton creditDetailsTemplateSingleton = new CreditDetailsTemplateSingleton();
+    public ScriptTest0() throws IOException {}
 
-    public ScriptTest0() throws IOException {
-    }
-
-    //
-//     public ScriptTest0(CreditDetailsTemplateSingleton creditDetailsTemplateSingleton) throws IOException {
-//         this.creditDetailsTemplateSingleton = creditDetailsTemplateSingleton;
-//         this.preconditionsFoScript = new PreconditionsFoScripts();
-//     }
 @Test
 //  Клієнт не використовує кредитний ліміт
     public void testCase1 (int clientId, long uid) throws IOException {
